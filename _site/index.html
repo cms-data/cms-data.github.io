@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="copyright" content="1954-2013 CERN">  
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <style>
+
+  body {
+    padding: 40px;
+  }
+  table td {
+    border: 1px solid;
+    padding: 4px;
+  }
+  table > thead {
+    background: rgb(51,51,51);
+    color: #ffffff;
+  }
+  p {
+    font-size: 17.5px;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+  </style>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <a class="brand" href="index.html">CMSSW on GitHub</a>
+      <ul class="nav">
+        
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span9">
+        <h2 id="whats-cms-data">What’s cms-data?</h2>
+
+<p><a href="http://github.com/cms-data">The cms-data github organization</a> is meant to kept large
+file (e.g. weights) which are requested by a given package in CMSSW but which
+are deemed to be too large to stay in the cms-sw/cmssw repository.</p>
+
+<p>This is of course not meant to contain actual CMS datafiles.</p>
+
+<h2 id="repository-structure">Repository structure:</h2>
+
+<p>Packages should be called according to their CMSSW counterparts, just with a
+dash (<code>-</code>) in place of a slash (<code>/</code>). E.g.:</p>
+
+<pre><code>&lt;subsystem&gt;/&lt;package&gt;
+</code></pre>
+
+<p>datafiles should be kept in a flat structure inside the repository.</p>
+
+<h2 id="packaging-datafiles-into-an-rpm">Packaging datafiles into an RPM</h2>
+
+<p>In order to be picked up by CMSSW the datafiles need to be packaged in a RPM.
+This is done automatically once a spec file is provided in
+<a href="http://github.com/cms-sw/cmsdist">CMSDIST</a>. By convention, the spec file needs
+to be called:</p>
+
+<p><code>
+data-&lt;subsy&lt;package&gt;.spec
+</code></p>
+
+<p>and have the following structure:</p>
+
+<pre><code>### RPM cms data-&lt;subsystem&gt;-&lt;package&gt; &lt;tag&gt;
+
+%prep
+
+## IMPORT data-build-github
+</code></pre>
+
+<p>where <code>&lt;tag&gt;</code> is some tag or hash given to the repository found in this
+organization.</p>
+
+      </div>
+      <div class="span3">
+        <h3 id='quick_start'>Quick links</h3>
+        <ul>
+          <li><a href='http://github.com/cms-data'>Data Repositories</a></li>
+          <li><a href='http://github.com/cms-data'>CMS code repositories</a></li>
+          <li><a href='http://github.com/cms-data'>CMSSW repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span4"></div>
+      <div style="text-align: center; padding-top: 50px;" class="span4"><a style="font-size: 80%;" href="http://copyright.web.cern.ch">Copyright 1954-2013 CERN</a></div>
+      <div class="span4"></div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
