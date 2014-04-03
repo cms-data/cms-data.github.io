@@ -40,3 +40,6 @@ and have the following structure:
 
 where `<tag>` is some tag or hash given to the repository found in this
 organization.
+
+Once you have done that, in order to have it deployed in a release you need to
+add the `Require` statement into `cmsdata.spec`.
